@@ -100,9 +100,8 @@ pastenest/
 │   ├── delete.php
 │   └── restore.php
 ├── raw/
-│   └── index.php       # /raw/SLUG
-└── admin/
-    └── index.php
+    └── index.php       # /raw/SLUG
+
 ```
 
 ---
