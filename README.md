@@ -1,5 +1,4 @@
-# 📋 MyClip v2
-
+<h1># 📋 MyClip v2</h1>
 A full-featured, self-hosted notepad/pastebin built with **PHP 8+** and **MySQL**.
 
 ## URL Structure
@@ -144,6 +143,6 @@ server {
 ---
 
 ## License
-MIT
+Apache
 # MyClip
 A full-featured, self-hosted notepad/pastebin built with PHP 8+ and MySQL.
