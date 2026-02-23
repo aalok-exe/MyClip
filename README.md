@@ -47,31 +47,6 @@ Duplicate slugs per user get `-2`, `-3` appended automatically.
 
 ---
 
-## Setup (5 minutes)
-
-### 1. Upload files
-Upload the `pastenest/` folder to your server root, e.g. `/var/www/html/pastenest/`
-
-### 2. Import the database
-```bash
-mysql -u root -p < schema.sql
-```
-
-### 3. Edit config
-Open `includes/config.php`:
-```php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'pastenest');
-define('DB_USER', 'your_user');
-define('DB_PASS', 'your_password');
-define('APP_URL',  'https://yourdomain.com');  // no trailing slash
-```
-
-If installed at the domain root, change `RewriteBase /pastenest/` to `RewriteBase /` in `.htaccess`.
-
-
-
----
 
 ## File Structure
 
