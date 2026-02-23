@@ -1,4 +1,4 @@
-<h1># 📋 MyClip v2</h1>
+<h1>#MyClip v2</h1>
 A full-featured, self-hosted notepad/pastebin built with **PHP 8+** and **MySQL**.
 
 ## URL Structure
@@ -19,22 +19,22 @@ Duplicate slugs per user get `-2`, `-3` appended automatically.
 
 | Feature | Details |
 |---|---|
-| 👤 User accounts | Self-registration, login, session management |
-| 🌐 Pretty URLs | `/username` and `/username/note-title` |
-| 👤 Profile pages | Public page listing all a user's public notes |
-| 📋 Note management | Create, edit, delete — only your own notes |
-| 🔒 Public / Private | Toggle per-note visibility |
-| 🔑 Password protection | Per-note optional password (bcrypt) |
-| 🌈 Syntax highlighting | 18 languages via Highlight.js |
-| 📝 Markdown | Rendering + live preview |
-| 🕐 Revision history | Up to 20 revisions, one-click restore |
-| 📊 Dashboard | Stats + paginated note list |
-| 📷 QR Code | Instant QR for any note |
-| ⬇ Download | Download with correct file extension |
-| 📄 Raw endpoint | `/raw/SLUG` (plain text) |
-| 🏷 Tags | Comma-separated, up to 10 per note |
-| 💾 Draft autosave | localStorage backup while writing |
-| 🌗 Dark/Light theme | Persisted per browser |
+|  User accounts | Self-registration, login, session management |
+|  Pretty URLs | `/username` and `/username/note-title` |
+|  Profile pages | Public page listing all a user's public notes |
+|  Note management | Create, edit, delete — only your own notes |
+|  Public / Private | Toggle per-note visibility |
+|  Password protection | Per-note optional password (bcrypt) |
+|  Syntax highlighting | 18 languages via Highlight.js |
+|  Markdown | Rendering + live preview |
+|  Revision history | Up to 20 revisions, one-click restore |
+|  Dashboard | Stats + paginated note list |
+|  QR Code | Instant QR for any note |
+|  Download | Download with correct file extension |
+|  Raw endpoint | `/raw/SLUG` (plain text) |
+|  Tags | Comma-separated, up to 10 per note |
+|  Draft autosave | localStorage backup while writing |
+|  Dark/Light theme | Persisted per browser |
 
 
 ---
