@@ -55,14 +55,14 @@ $page_title = $user['username'] . '\'s clip';
 require_once __DIR__ . '/includes/header.php';
 ?>
 <style>
-/* ══ Full-height pad layout ══ */
+/* ?? Full-height pad layout ?? */
 .pad-shell {
   display: flex;
   flex-direction: column;
   height: calc(100vh - var(--nav-h));
 }
 
-/* ── Toolbar ── */
+/* ?? Toolbar ?? */
 .pad-toolbar {
   display: flex;
   align-items: center;
@@ -106,7 +106,7 @@ require_once __DIR__ . '/includes/header.php';
 .syn-select:hover { color: var(--text); }
 .ml { margin-left: auto; }
 
-/* ── Main area: editor | preview ── */
+/* ?? Main area: editor | preview ?? */
 .pad-body {
   flex: 1;
   display: grid;
@@ -115,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
   position: relative;
 }
 
-/* ── The textarea ── */
+/* ?? The textarea ?? */
 #pad-ta {
   width: 100%;
   height: 100%;
@@ -138,7 +138,7 @@ require_once __DIR__ . '/includes/header.php';
   background: var(--bg);
 }
 
-/* ── Read-only viewer ── */
+/* ?? Read-only viewer ?? */
 #pad-viewer {
   display: none;
   width: 100%;
@@ -163,7 +163,7 @@ require_once __DIR__ . '/includes/header.php';
 .is-md a { color:var(--text); text-decoration:underline; }
 .is-md img { max-width:100%; border-radius:4px; }
 
-/* ── Code highlight wrap ── */
+/* ?? Code highlight wrap ?? */
 #pad-viewer pre.code-view {
   margin: 0;
   padding: 24px clamp(20px, 4vw, 80px);
@@ -176,7 +176,7 @@ require_once __DIR__ . '/includes/header.php';
 }
 #pad-viewer pre.code-view code { background: none; padding: 0; font-size: inherit; }
 
-/* ── Saved notes drawer ── */
+/* ?? Saved notes drawer ?? */
 .saved-panel {
   position: fixed;
   top: calc(var(--nav-h) + 40px);
@@ -233,7 +233,7 @@ require_once __DIR__ . '/includes/header.php';
   gap: 6px;
 }
 
-/* ── Snapshot modal ── */
+/* ?? Snapshot modal ?? */
 .snap-modal {
   display: none;
   position: fixed;
@@ -263,7 +263,7 @@ require_once __DIR__ . '/includes/header.php';
 .snap-box input:focus { border-color: var(--text2); }
 .snap-row { display: flex; gap: 8px; }
 
-/* ── Copy toast ── */
+/* ?? Copy toast ?? */
 .toast {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(12px);
   background: var(--surface2); border: 1px solid var(--border2);
@@ -281,7 +281,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="pad-shell">
 
-  <!-- ── Toolbar ── -->
+  <!-- ?? Toolbar ?? -->
   <div class="pad-toolbar">
     <span class="pad-user"><strong><?= h($user['username']) ?></strong>/clip</span>
     <div class="pad-sep"></div>
@@ -297,8 +297,10 @@ require_once __DIR__ . '/includes/header.php';
       <span class="pad-status" id="pad-status">ready</span>
       <div class="pad-sep"></div>
       <!-- Actions -->
+      <button class="btn btn-outline btn-xs" onclick="openSnap()" title="Save permanently">Save</button>
       <button class="btn btn-ghost btn-xs" onclick="copyPad()" title="Copy all">Copy</button>
       <button class="btn btn-ghost btn-xs" onclick="clearPad()" title="Clear pad">Clear</button>
+      
     <?php else: ?>
       <span class="pad-status" style="color:var(--muted);"><?= h(SYNTAX_MODES[$pad['syntax']] ?? $pad['syntax']) ?></span>
       <button class="btn btn-ghost btn-xs ml" onclick="copyPad()">Copy</button>
@@ -317,7 +319,7 @@ require_once __DIR__ . '/includes/header.php';
     </span>
   </div>
 
-  <!-- ── Pad body ── -->
+  <!-- ?? Pad body ?? -->
   <div class="pad-body">
     <?php if ($is_own): ?>
       <textarea id="pad-ta"
@@ -343,11 +345,11 @@ require_once __DIR__ . '/includes/header.php';
 
 </div><!-- /clip-shell -->
 
-<!-- ── Saved notes panel ── -->
+<!-- ?? Saved notes panel ?? -->
 <div class="saved-panel" id="saved-panel">
   <div class="saved-panel-head">
     Saved Notes
-    <button class="btn btn-ghost btn-xs" style="margin-left:auto;" onclick="togglePanel()">✕</button>
+    <button class="btn btn-ghost btn-xs" style="margin-left:auto;" onclick="togglePanel()">?</button>
   </div>
   <div class="saved-panel-list">
     <?php if (empty($saved_notes)): ?>
@@ -372,7 +374,7 @@ require_once __DIR__ . '/includes/header.php';
 </div>
 
 <?php if ($is_own): ?>
-<!-- ── Snapshot modal ── -->
+<!-- ?? Snapshot modal ?? -->
 <div class="snap-modal" id="snap-modal">
   <div class="snap-box">
     <h3>Save as permanent note</h3>
@@ -403,7 +405,7 @@ const IS_MD     = <?= json_encode($is_md) ?>;
 const IS_CODE   = <?= json_encode($is_code) ?>;
 const PAD_CONTENT_INIT = <?= json_encode($pad['content']) ?>;
 
-// ── Toast ────────────────────────────────────────────────────
+// ?? Toast ????????????????????????????????????????????????????
 function toast(msg, dur = 2200) {
   const el = document.getElementById('toast');
   el.textContent = msg;
@@ -411,12 +413,12 @@ function toast(msg, dur = 2200) {
   setTimeout(() => el.classList.remove('show'), dur);
 }
 
-// ── Saved panel ───────────────────────────────────────────────
+// ?? Saved panel ???????????????????????????????????????????????
 // togglePanel defined globally in header.php
 
 
 <?php if ($is_own): ?>
-// ── Auto-save ─────────────────────────────────────────────────
+// ?? Auto-save ?????????????????????????????????????????????????
 const ta       = document.getElementById('pad-ta');
 const statusEl = document.getElementById('pad-status');
 const charsEl  = document.getElementById('pad-chars');
@@ -466,7 +468,7 @@ ta.addEventListener('input', () => { updateChars(); scheduleSave(); });
 ta.addEventListener('paste', () => { updateChars(); scheduleSave(); });
 synSel.addEventListener('change', scheduleSave);
 
-// Tab key → indent
+// Tab key ? indent
 ta.addEventListener('keydown', e => {
   if (e.key !== 'Tab') return;
   e.preventDefault();
@@ -476,7 +478,7 @@ ta.addEventListener('keydown', e => {
   scheduleSave();
 });
 
-// Ctrl+S / Cmd+S → force save immediately
+// Ctrl+S / Cmd+S ? force save immediately
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's') {
     e.preventDefault();
@@ -490,7 +492,7 @@ lastSaved = ta.value;
 updateChars();
 setStatus('ready', '');
 
-// ── Clear ─────────────────────────────────────────────────────
+// ?? Clear ?????????????????????????????????????????????????????
 function clearPad() {
   if (ta.value && !confirm('Clear the pad? This will auto-save an empty pad.')) return;
   ta.value = '';
@@ -499,12 +501,12 @@ function clearPad() {
   ta.focus();
 }
 
-// ── Copy ──────────────────────────────────────────────────────
+// ?? Copy ??????????????????????????????????????????????????????
 function copyPad() {
   navigator.clipboard.writeText(ta.value).then(() => toast('Copied to clipboard'));
 }
 
-// ── Snapshot modal ────────────────────────────────────────────
+// ?? Snapshot modal ????????????????????????????????????????????
 function openSnap() {
   document.getElementById('snap-modal').classList.add('open');
   document.getElementById('snap-title').focus();
@@ -545,7 +547,7 @@ async function doSnapshot() {
 }
 
 <?php else: ?>
-// ── Read-only: render content ─────────────────────────────────
+// ?? Read-only: render content ?????????????????????????????????
 const viewer = document.getElementById('pad-viewer');
 viewer.style.display = 'block';
 
@@ -562,7 +564,7 @@ function copyPad() {
   navigator.clipboard.writeText(PAD_CONTENT_INIT).then(() => toast('Copied'));
 }
 
-// ── Live poll for visitor: refresh when pad changes ───────────
+// ?? Live poll for visitor: refresh when pad changes ???????????
 let lastTs = <?= strtotime($pad['updated_at'] ?: 'now') ?>;
 async function pollPad() {
   try {
