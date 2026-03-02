@@ -3,10 +3,10 @@
 //  PasteNest — Configuration
 // ============================================================
 
-define('DB_HOST',    'sql101.infinityfree.com');
-define('DB_NAME',    'if0_41210041_pastenest_db');
-define('DB_USER',    'if0_41210041');        // ← change
-define('DB_PASS',    'aalok161');            // ← change
+define('DB_HOST',    '');
+define('DB_NAME',    '');
+define('DB_USER',    '');        // ← change
+define('DB_PASS',    '');            // ← change
 define('DB_CHARSET', 'utf8mb4');
 
 define('APP_NAME',    'MyClip');
