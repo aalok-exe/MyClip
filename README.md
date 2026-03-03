@@ -1,4 +1,5 @@
 <h1>MyClip v2</h1>
+https://pastenest.kesug.com/
 A full-featured, self-hosted notepad/pastebin built with **PHP 8+** and **MySQL**.
 
 ## URL Structure
