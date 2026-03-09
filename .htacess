@@ -1,0 +1,25 @@
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# ── Static files & real dirs pass through ──────────────────
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ── Block direct access to includes/ ───────────────────────
+RewriteRule ^includes/ - [F,L]
+
+# ── Named PHP files at root pass through ───────────────────
+RewriteRule ^(profile|latest)\.php$ - [L]
+
+# ── Sub-directories pass through ───────────────────────────
+RewriteRule ^(auth|dashboard|admin|note|raw|pad)/ - [L]
+
+# ── User pad: /username ─────────────────────────────────────
+RewriteRule ^([a-zA-Z0-9_]{3,40})/?$ profile.php?username=$1 [L,QSA]
+
+# ── Saved note: /username/note-slug ────────────────────────
+RewriteRule ^([a-zA-Z0-9_]{3,40})/([a-zA-Z0-9\-_]{1,255})/?$ note/view.php?u=$1&n=$2 [L,QSA]
